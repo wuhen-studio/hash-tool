@@ -1,6 +1,6 @@
 {
   "name": "hash-tool",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Cross-platform hash generation tool",
   "author": "Wuhen Studio <hello@wuhen.studio>",
   "main": "dist/electron/main.js",
