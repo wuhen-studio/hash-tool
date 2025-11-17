@@ -1,59 +1,39 @@
-# HashTool
+# Hash Tool
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
+跨平台 Hash 生成工具，支持 10 种常用 Hash 算法。
 
-## Development server
+## 功能特性
 
-To start a local development server, run:
+- 支持 10 种 Hash 算法：MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, SHA3-224, SHA3-256, SHA3-384, SHA3-512
+- 实时计算，输入即生成
+- 大小写格式都支持
+- 一键复制功能
+- 跨平台支持（Windows, macOS, Linux）
 
-```bash
-ng serve
-```
+## 下载
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+前往 [Releases](../../releases) 页面下载对应平台的安装包。
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 开发
 
 ```bash
-ng generate --help
+# 安装依赖
+npm install
+
+# 开发模式运行
+npm run electron:dev
+
+# 构建
+npm run dist
 ```
 
-## Building
+## 技术栈
 
-To build the project run:
+- Angular 20
+- Electron 39
+- ng-zorro-antd
+- crypto-js
 
-```bash
-ng build
-```
+## License
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT

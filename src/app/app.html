@@ -1,4 +1,104 @@
-<!-- NG-ZORRO -->
-<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">
-  <img height="300" alt="logo" src="https://img.alicdn.com/tfs/TB1X.qJJgHqK1RjSZFgXXa7JXXa-89-131.svg">
-</a>
+<div style="min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+  <div class="sticky-header">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 16px;">
+      <div style="text-align: center; margin-bottom: 16px;">
+        <h1 class="main-title">🔐 Hash生成工具</h1>
+        <p class="main-subtitle">支持10种常用Hash算法，实时计算</p>
+      </div>
+
+      <nz-card nzTitle="📝 输入文本" [nzExtra]="inputExtra" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+        <textarea nz-input [(ngModel)]="inputText" placeholder="请输入要计算hash的文本..." [nzAutosize]="{ minRows: 3, maxRows: 8 }" style="font-family: 'Monaco', 'Menlo', monospace; font-size: 14px;"></textarea>
+      </nz-card>
+      <ng-template #inputExtra>
+        <span style="color: #8c8c8c; font-size: 12px;">{{inputText().length}} 字符</span>
+      </ng-template>
+    </div>
+  </div>
+
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 16px 16px 16px;">
+
+    @if (hashes(); as h) {
+      <div class="hash-grid">
+        <nz-card class="hash-card md5-card">
+          <div class="card-header">MD5</div>
+          <div class="hash-item">
+            <div class="hash-row"><span class="hash-label">小写</span><code class="hash-value">{{h.md5}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.md5)"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+            <div class="hash-row"><span class="hash-label">大写</span><code class="hash-value">{{h.md5.toUpperCase()}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.md5.toUpperCase())"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+          </div>
+        </nz-card>
+
+        <nz-card class="hash-card sha1-card">
+          <div class="card-header">SHA-1</div>
+          <div class="hash-item">
+            <div class="hash-row"><span class="hash-label">小写</span><code class="hash-value">{{h.sha1}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha1)"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+            <div class="hash-row"><span class="hash-label">大写</span><code class="hash-value">{{h.sha1.toUpperCase()}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha1.toUpperCase())"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+          </div>
+        </nz-card>
+
+        <nz-card class="hash-card sha224-card">
+          <div class="card-header">SHA-224</div>
+          <div class="hash-item">
+            <div class="hash-row"><span class="hash-label">小写</span><code class="hash-value">{{h.sha224}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha224)"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+            <div class="hash-row"><span class="hash-label">大写</span><code class="hash-value">{{h.sha224.toUpperCase()}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha224.toUpperCase())"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+          </div>
+        </nz-card>
+
+        <nz-card class="hash-card sha256-card">
+          <div class="card-header">SHA-256</div>
+          <div class="hash-item">
+            <div class="hash-row"><span class="hash-label">小写</span><code class="hash-value">{{h.sha256}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha256)"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+            <div class="hash-row"><span class="hash-label">大写</span><code class="hash-value">{{h.sha256.toUpperCase()}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha256.toUpperCase())"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+          </div>
+        </nz-card>
+
+        <nz-card class="hash-card sha384-card">
+          <div class="card-header">SHA-384</div>
+          <div class="hash-item">
+            <div class="hash-row"><span class="hash-label">小写</span><code class="hash-value">{{h.sha384}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha384)"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+            <div class="hash-row"><span class="hash-label">大写</span><code class="hash-value">{{h.sha384.toUpperCase()}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha384.toUpperCase())"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+          </div>
+        </nz-card>
+
+        <nz-card class="hash-card sha512-card">
+          <div class="card-header">SHA-512</div>
+          <div class="hash-item">
+            <div class="hash-row"><span class="hash-label">小写</span><code class="hash-value">{{h.sha512}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha512)"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+            <div class="hash-row"><span class="hash-label">大写</span><code class="hash-value">{{h.sha512.toUpperCase()}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha512.toUpperCase())"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+          </div>
+        </nz-card>
+
+        <nz-card class="hash-card sha3-224-card">
+          <div class="card-header">SHA3-224</div>
+          <div class="hash-item">
+            <div class="hash-row"><span class="hash-label">小写</span><code class="hash-value">{{h.sha3_224}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha3_224)"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+            <div class="hash-row"><span class="hash-label">大写</span><code class="hash-value">{{h.sha3_224.toUpperCase()}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha3_224.toUpperCase())"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+          </div>
+        </nz-card>
+
+        <nz-card class="hash-card sha3-256-card">
+          <div class="card-header">SHA3-256</div>
+          <div class="hash-item">
+            <div class="hash-row"><span class="hash-label">小写</span><code class="hash-value">{{h.sha3_256}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha3_256)"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+            <div class="hash-row"><span class="hash-label">大写</span><code class="hash-value">{{h.sha3_256.toUpperCase()}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha3_256.toUpperCase())"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+          </div>
+        </nz-card>
+
+        <nz-card class="hash-card sha3-384-card">
+          <div class="card-header">SHA3-384</div>
+          <div class="hash-item">
+            <div class="hash-row"><span class="hash-label">小写</span><code class="hash-value">{{h.sha3_384}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha3_384)"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+            <div class="hash-row"><span class="hash-label">大写</span><code class="hash-value">{{h.sha3_384.toUpperCase()}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha3_384.toUpperCase())"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+          </div>
+        </nz-card>
+
+        <nz-card class="hash-card sha3-512-card">
+          <div class="card-header">SHA3-512</div>
+          <div class="hash-item">
+            <div class="hash-row"><span class="hash-label">小写</span><code class="hash-value">{{h.sha3_512}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha3_512)"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+            <div class="hash-row"><span class="hash-label">大写</span><code class="hash-value">{{h.sha3_512.toUpperCase()}}</code><button nz-button nzType="text" nzShape="circle" (click)="copy(h.sha3_512.toUpperCase())"><span nz-icon nzType="copy" nzTheme="outline"></span></button></div>
+          </div>
+        </nz-card>
+      </div>
+    }
+  </div>
+</div>

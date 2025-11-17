@@ -1,0 +1,142 @@
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.hash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .hash-grid {
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  }
+}
+
+.hash-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-left: 4px solid;
+}
+
+@media (hover: hover) {
+  .hash-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+}
+
+.md5-card { border-left-color: #ff6b6b; }
+.sha1-card { border-left-color: #4ecdc4; }
+.sha224-card { border-left-color: #45b7d1; }
+.sha256-card { border-left-color: #96ceb4; }
+.sha384-card { border-left-color: #ffeaa7; }
+.sha512-card { border-left-color: #dfe6e9; }
+.sha3-224-card { border-left-color: #a29bfe; }
+.sha3-256-card { border-left-color: #fd79a8; }
+.sha3-384-card { border-left-color: #fdcb6e; }
+.sha3-512-card { border-left-color: #6c5ce7; }
+
+.card-header {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #262626;
+}
+
+.hash-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hash-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hash-label {
+  min-width: 50px;
+  font-weight: 500;
+  color: #595959;
+  font-size: 13px;
+}
+
+.hash-value {
+  flex: 1;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 8px;
+  font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+  font-size: 13px;
+  color: #2d3436;
+  word-break: break-all;
+  border: 1px solid #e1e8ed;
+}
+
+.hash-row button {
+  color: #1890ff;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+@media (hover: hover) {
+  .hash-row button:hover {
+    color: #40a9ff;
+    transform: scale(1.1);
+  }
+}
+
+.main-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.main-subtitle {
+  color: rgba(255,255,255,0.9);
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 28px;
+  }
+
+  .main-subtitle {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .main-title {
+    font-size: 24px;
+  }
+
+  .card-header {
+    font-size: 16px;
+  }
+
+  .hash-label {
+    min-width: 40px;
+    font-size: 12px;
+  }
+
+  .hash-value {
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+
+  .hash-row {
+    gap: 8px;
+  }
+}
