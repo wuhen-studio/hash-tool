@@ -39,7 +39,8 @@
         {"target": "nsis", "arch": ["x64", "ia32"]},
         {"target": "zip", "arch": ["x64", "ia32"]}
       ],
-      "icon": "build/icons/icon.png"
+      "icon": "build/icons/icon.png",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
     },
     "linux": {
       "target": [
