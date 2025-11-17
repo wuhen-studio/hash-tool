@@ -15,11 +15,14 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - run: npm run dist -- --mac --x64 --arm64
+      - run: npm run dist -- --mac --x64 --arm64 --publish never
       - uses: actions/upload-artifact@v4
         with:
           name: release-mac
-          path: release/*.*
+          path: |
+            release/*.dmg
+            release/*.zip
+            release/*.blockmap
 
   build-windows:
     runs-on: windows-latest
@@ -29,11 +32,14 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - run: npm run dist -- --win --x64 --ia32
+      - run: npm run dist -- --win --x64 --ia32 --publish never
       - uses: actions/upload-artifact@v4
         with:
           name: release-windows
-          path: release/*.*
+          path: |
+            release/*.exe
+            release/*.zip
+            release/*.blockmap
 
   build-linux:
     runs-on: ubuntu-latest
@@ -43,8 +49,11 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - run: npm run dist -- --linux --x64
+      - run: npm run dist -- --linux --x64 --publish never
       - uses: actions/upload-artifact@v4
         with:
           name: release-linux
-          path: release/*.*
+          path: |
+            release/*.AppImage
+            release/*.deb
+            release/*.blockmap
