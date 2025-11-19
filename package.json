@@ -1,6 +1,6 @@
 {
   "name": "hash-tool",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Cross-platform hash generation tool",
   "author": "Wuhen Studio <hello@wuhen.studio>",
   "main": "dist/electron/main.js",
@@ -32,7 +32,8 @@
         {"target": "zip", "arch": ["x64", "arm64"]}
       ],
       "icon": "build/icons/icon.png",
-      "category": "public.app-category.developer-tools"
+      "category": "public.app-category.developer-tools",
+      "artifactName": "mac-${productName}-${version}-${arch}.${ext}"
     },
     "win": {
       "target": [
@@ -40,7 +41,7 @@
         {"target": "zip", "arch": ["x64", "ia32"]}
       ],
       "icon": "build/icons/icon.png",
-      "artifactName": "${productName}-${version}-${arch}.${ext}"
+      "artifactName": "win-${productName}-${version}-${arch}.${ext}"
     },
     "linux": {
       "target": [
@@ -48,7 +49,8 @@
         {"target": "deb", "arch": ["x64"]}
       ],
       "icon": "build/icons/icon.png",
-      "category": "Development"
+      "category": "Development",
+      "artifactName": "linux-${productName}-${version}-${arch}.${ext}"
     }
   },
   "prettier": {
